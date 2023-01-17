@@ -1,0 +1,22 @@
+.card-blue-select {
+  background-color: #f8fcff;
+  border-color: #f3faff;
+}
+
+.card-blue-select:hover {
+  background-color: #f3faff;
+}
+
+.card-blue-select > img {
+  border-radius: 6px;
+}
+
+.card-blue-select .card-body .card-title {
+  text-decoration: none;
+}
+
+.card {
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 0.4375rem;
+  box-shadow: 0 1rem 1rem -0.75rem rgba(105, 96, 215, 0.175);
+}
