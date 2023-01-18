@@ -8,6 +8,8 @@ import { useParams } from "react-router-dom";
 
 import Gmap from "../components/Gmap";
 
+import ImageLabelBox from "../components/ImageLabelBox";
+
 export default function Pollution() {
   let { pollution_id } = useParams();
 
@@ -227,7 +229,7 @@ export default function Pollution() {
                       <p className="mt-5">
                         <strong>Fixed Image:</strong>
                       </p>
-                      <img
+                      {/* <img
                         className="img-fluid"
                         alt="Fixed Image"
                         src={
@@ -235,7 +237,18 @@ export default function Pollution() {
                           "/" +
                           imageCoordsData.fixed_image
                         }
-                      ></img>
+                      ></img> */}
+                      <ImageLabelBox
+                        image_file={
+                          process.env.REACT_APP_STORAGE_URL +
+                          "/" +
+                          imageCoordsData.unfixed_image
+                        }
+                        w={imageCoordsData.w}
+                        x={imageCoordsData.x}
+                        y={imageCoordsData.y}
+                        z={imageCoordsData.z}
+                      />
                     </Fragment>
                   ) : (
                     ""
