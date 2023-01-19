@@ -1,45 +1,72 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useState, useRef } from "react";
 
-export default function ImageLabelBox({ image_file, w, x, y ,z })
-{
-  const [width_x, setWidthX] = useState(0.0);
-  const [height_x, setWidthY] = useState(0.0);
-  const [_x, setX] = useState(0.0);
-  const [_y, setY] = useState(0.0);
+import { HalfMalf } from "../lib/spinner-loader/index";
+import "../lib/spinner-loader/index.css";
 
-  // const calculateImageBoundingBox = () => {
-  //   xCenter = parseFloat();
-  //   yCenter = parseFloat();
+export default function ImageLabelBox({ image_file, w, x, y, z }) {
+  const imageRef = useRef(false);
 
-  //   xWidth = parseFloat();
-  //   xHeight = parseFloat();
+  console.log("image", imageRef.current?.complete);
 
-  //   __x = parseInt(xCenter - (xWidth/2));
-  //   __y = parseInt(yCenter - (xHeight/2));
+  const [imageWidth, setImageWidth] = useState(0);
+  const [imageHeight, setImageHeight] = useState(0);
 
-  //   setWidthX(width_x);
-  //   setWidthY(height_x);
-  //   setX(__x);
-  //   setY(__y);
-  // };
+  const [isImageLoading, setImageLoading] = useState(false);
 
-  // useEffect(() => { calculateImageBoundingBox() }, []);
+  const calculateImageBoundingBox = () => {
+
+    console.log("Image Width", imageWidth);
+    console.log("Image Height", imageHeight);
+
+    let xCenter = parseFloat(w * imageWidth);
+    let yCenter = parseFloat(x * imageHeight);
+
+    let xWidth = parseFloat(y * imageWidth);
+    let xHeight = parseFloat(z * imageHeight);
+
+    let _x = parseInt(xCenter - xWidth / 2);
+    let _y = parseInt(yCenter - xHeight / 2);
+
+    console.log(xWidth, xHeight, _x, _y);
+
+    return (
+      <div
+        style={{
+          top: `10px`,
+          left: `20px`,
+          width: `${xWidth}px`,
+          height: `${xHeight}px`,
+          backgroundColor: "#0096ff10",
+          position: "absolute",
+          border: "1px solid #0096ff",
+        }}
+      ></div>
+    );
+  };
 
   return (
     <Fragment>
       <div style={{ position: "relative" }}>
-        <img className="img-fluid" alt="image View" src={image_file} />
-        <div
-          style={{
-            top: '20px',
-            left: '50px',
-            width: '50px',
-            height: '40px',
-            backgroundColor: "#00000030",
-            position: "absolute",
-            border: "2px solid ",
+        <img
+          onLoad={(event) => {
+            setImageWidth(event.target.naturalWidth);
+            setImageHeight(event.target.naturalHeight);
           }}
+          ref={imageRef}
+          className="img-fluid"
+          alt="image View"
+          src={image_file}
         />
+        {imageRef.current?.complete ? (
+          calculateImageBoundingBox(imageWidth, imageHeight)
+        ) : (
+          <h1>Image Loading Error!</h1>
+        )}
+        {imageWidth && imageHeight && (
+          <span>
+            {imageHeight} x {imageWidth}
+          </span>
+        )}
       </div>
     </Fragment>
   );
