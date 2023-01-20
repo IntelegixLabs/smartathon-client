@@ -49,8 +49,8 @@ export default function ImageLabelBox({ image_file, w, x, y, z }) {
       <div style={{ position: "relative" }}>
         <img
           onLoad={(event) => {
-            setImageWidth(event.target.naturalWidth);
-            setImageHeight(event.target.naturalHeight);
+            setImageWidth(event.target.clientWidth);
+            setImageHeight(event.target.clientHeight);
           }}
           ref={imageRef}
           className="img-fluid"
