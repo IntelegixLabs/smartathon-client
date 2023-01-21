@@ -16,7 +16,7 @@ function Gmap({ lat, long, markers, showMarkers }) {
   const [latitude, setLatitude] = useState(lat);
   const [longitude, setLongitude] = useState(long);
 
-  const [zoom, setZoom] = useState(8);
+  const [zoom, setZoom] = useState(14);
 
   const onUnmount = useCallback(function callback(map) {
     setMap(null);
