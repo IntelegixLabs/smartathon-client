@@ -229,7 +229,7 @@ export default function Pollution() {
                       <p className="mt-5">
                         <strong>Fixed Image:</strong>
                       </p>
-                      {/* <img
+                      <img
                         className="img-fluid"
                         alt="Fixed Image"
                         src={
@@ -237,18 +237,7 @@ export default function Pollution() {
                           "/" +
                           imageCoordsData.fixed_image
                         }
-                      ></img> */}
-                      <ImageLabelBox
-                        image_file={
-                          process.env.REACT_APP_STORAGE_URL +
-                          "/" +
-                          imageCoordsData.unfixed_image
-                        }
-                        w={imageCoordsData.w}
-                        x={imageCoordsData.x}
-                        y={imageCoordsData.y}
-                        z={imageCoordsData.z}
-                      />
+                      ></img>
                     </Fragment>
                   ) : (
                     ""
@@ -316,15 +305,26 @@ export default function Pollution() {
                     <strong>Reported image:</strong>
                   </p>
                   {imageCoordsData.unfixed_image ? (
-                    <img
-                      className="img-fluid"
-                      alt="reported image"
-                      src={
+                    // <img
+                    //   className="img-fluid"
+                    //   alt="reported image"
+                    //   src={
+                    //     process.env.REACT_APP_STORAGE_URL +
+                    //     "/" +
+                    //     imageCoordsData.unfixed_image
+                    //   }
+                    // ></img>
+                    <ImageLabelBox
+                      image_file={
                         process.env.REACT_APP_STORAGE_URL +
                         "/" +
                         imageCoordsData.unfixed_image
                       }
-                    ></img>
+                      w={imageCoordsData.w}
+                      x={imageCoordsData.x}
+                      y={imageCoordsData.y}
+                      z={imageCoordsData.z}
+                    />
                   ) : (
                     ""
                   )}
