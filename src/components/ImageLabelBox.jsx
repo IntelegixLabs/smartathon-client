@@ -4,9 +4,7 @@ import { HalfMalf } from "../lib/spinner-loader/index";
 import "../lib/spinner-loader/index.css";
 
 export default function ImageLabelBox({ image_file, w, x, y, z }) {
-  const imageRef = useRef(false);
-
-  console.log("image", imageRef.current?.complete);
+  const imageRef = useRef(null);
 
   const [imageWidth, setImageWidth] = useState(0);
   const [imageHeight, setImageHeight] = useState(0);
@@ -44,6 +42,10 @@ export default function ImageLabelBox({ image_file, w, x, y, z }) {
     );
   };
 
+  useEffect(() => {
+    setImageLoading(true);
+    console.log(imageRef);
+  }, [imageRef.current?.complete]);
   return (
     <Fragment>
       <div style={{ position: "relative" }}>
@@ -57,7 +59,7 @@ export default function ImageLabelBox({ image_file, w, x, y, z }) {
           alt="image View"
           src={image_file}
         />
-        {imageRef.current?.complete ? (
+        {isImageLoading ? (
           calculateImageBoundingBox(imageWidth, imageHeight)
         ) : (
           <h1>Image Loading Error!</h1>
