@@ -62,12 +62,7 @@ export default function ImageLabelBox({ image_file, w, x, y, z }) {
         {isImageLoading ? (
           calculateImageBoundingBox(imageWidth, imageHeight)
         ) : (
-          <h1>Image Loading Error!</h1>
-        )}
-        {imageWidth && imageHeight && (
-          <span>
-            {imageHeight} x {imageWidth}
-          </span>
+          <h4 className="text-danger">Image Loading Error!</h4>
         )}
       </div>
     </Fragment>
