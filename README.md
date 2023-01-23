@@ -9,8 +9,8 @@ Follow the required commands:
 2. ```npm start```
 
 # Screenshots
-<img src="screenshots/screenshots1.png" />
-<img src="screenshots/screenshots2.png" />
-<img src="screenshots/screenshots3.png" />
-<img src="screenshots/screenshots4.png" />
-<img src="screenshots/screenshots5.png" />
+<img src="screenshots/screenshot1.png" />
+<img src="screenshots/screenshot2.png" />
+<img src="screenshots/screenshot3.png" />
+<img src="screenshots/screenshot4.png" />
+<img src="screenshots/screenshot5.png" />
