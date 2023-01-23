@@ -9,7 +9,7 @@ Follow the required commands:
 2. ```npm start```
 
 # Screenshots
-<img src="screenshots/screenshot1.png" width="500px" height="200px"/>
+<img src="screenshots/screenshot1.png" />
 <img src="screenshots/screenshot2.png" />
 <img src="screenshots/screenshot3.png" />
 <img src="screenshots/screenshot4.png" />
